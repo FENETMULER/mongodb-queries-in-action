@@ -7,4 +7,4 @@ const userSchema = mongoose.Schema({
   age: Number,
 });
 
-module.expoorts = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);
