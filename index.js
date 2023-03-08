@@ -78,7 +78,7 @@ const findUser4 = async () => {
   */
 };
 
-//use findOne to get only the first document that matches a query.
+//using findOne to get only the first document that matches a query.
 
 const findUser5 = async () => {
   const result = await users.findOne({ name: "Haven", gender: "Male" }); //find one document where name is "Haven" and gender is "Male"
@@ -94,4 +94,12 @@ const findUser5 = async () => {
   */
 };
 
-findUser5();
+// *Counting Documents*
+
+const countUsers = async () => {
+  const result = await users.countDocuments({ age: { $lt: 21 } }); // We can use the same query filters that we would use with the 'find' method.
+  console.log(result);
+  //We get an integer value like: 12
+};
+
+countUsers();
