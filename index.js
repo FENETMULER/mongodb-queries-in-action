@@ -102,4 +102,18 @@ const countUsers = async () => {
   //We get an integer value like: 12
 };
 
-countUsers();
+// using $expr (Expressive Query Operator) - allows us to use aggregation expressions within MQL (MongoDB Query Language)
+
+const findUser6 = async () => {
+  const result = await users
+    .find({
+      $and: [
+        { age: { $exists: true } }, // this line is necessary so that we only match documents with an 'age' field, or else since null < 21 it will match documents with no age field.
+        { $expr: { $lt: ["$age", { $add: [20, 1] }] } },
+      ],
+    })
+    .count();
+  console.log(result);
+};
+
+findUser6();
