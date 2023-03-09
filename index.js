@@ -116,4 +116,12 @@ const findUser6 = async () => {
   console.log(result);
 };
 
-findUser6();
+// Sorting Results
+const findUser7 = async () => {
+  const result = await users
+    .find({}, { name: 1, age: 1, _id: 0 })
+    .sort({ age: -1 }); //sort by age in descending order
+  console.log(result);
+};
+
+findUser7();
