@@ -120,8 +120,15 @@ const findUser6 = async () => {
 const findUser7 = async () => {
   const result = await users
     .find({}, { name: 1, age: 1, _id: 0 })
-    .sort({ age: -1 }); //sort by age in descending order
+    .sort({ age: -1 }); //sort by age in Descending order
   console.log(result);
 };
 
-findUser7();
+const findUser8 = async () => {
+  const result = await users
+    .find({}, { name: 1, age: 1, _id: 0 })
+    .sort({ age: 1 }); //sort by age in Ascending order
+  console.log(result);
+};
+
+findUser8();
