@@ -131,4 +131,13 @@ const findUser8 = async () => {
   console.log(result);
 };
 
-findUser8();
+// Skipping Results
+const findUser9 = async () => {
+  const result = await users
+    .find({}, { name: 1, age: 1, _id: 0 })
+    .sort({ age: 1 })
+    .skip(5); // skip (don't include the first) 5 documents in the result set after sorting
+  console.log(result);
+};
+
+findUser9();
