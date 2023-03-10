@@ -122,6 +122,28 @@ const findUser7 = async () => {
     .find({}, { name: 1, age: 1, _id: 0 })
     .sort({ age: -1 }); //sort by age in Descending order
   console.log(result);
+  /*
+  [
+  { name: 'Chick', age: 20 },
+  { name: 'Delphine', age: 19 },
+  { name: 'Esme', age: 18 },
+  { name: 'Allianora', age: 17 },
+  { name: 'Ginelle', age: 16 },
+  { name: 'Kyla', age: 15 },
+  { name: 'Florian', age: 14 },
+  { name: 'Babbette', age: 13 },
+  { name: 'Vivia', age: 12 },
+  { name: 'Porter', age: 11 },
+  { name: 'Willi', age: 10 },
+  { name: 'Niven', age: 9 },
+  { name: 'Liam', age: 8 },
+  { name: 'Hortense', age: 8 },
+  { name: 'Ofella', age: 7 },
+  { name: 'Heddi', age: 6 },
+  { name: 'Lynnea', age: 5 },
+  { name: 'Haven', age: 4 },
+]
+  */
 };
 
 const findUser8 = async () => {
@@ -129,6 +151,26 @@ const findUser8 = async () => {
     .find({}, { name: 1, age: 1, _id: 0 })
     .sort({ age: 1 }); //sort by age in Ascending order
   console.log(result);
+  /*
+  [{ name: 'Haven', age: 4 },
+  { name: 'Lynnea', age: 5 },
+  { name: 'Heddi', age: 6 },
+  { name: 'Ofella', age: 7 },
+  { name: 'Liam', age: 8 },
+  { name: 'Hortense', age: 8 },
+  { name: 'Niven', age: 9 },
+  { name: 'Willi', age: 10 },
+  { name: 'Porter', age: 11 },
+  { name: 'Vivia', age: 12 },
+  { name: 'Babbette', age: 13 },
+  { name: 'Florian', age: 14 },
+  { name: 'Kyla', age: 15 },
+  { name: 'Ginelle', age: 16 },
+  { name: 'Allianora', age: 17 },
+  { name: 'Esme', age: 18 },
+  { name: 'Delphine', age: 19 },
+  { name: 'Chick', age: 20 }]
+*/
 };
 
 // Skipping Results
@@ -138,6 +180,21 @@ const findUser9 = async () => {
     .sort({ age: 1 })
     .skip(5); // skip (don't include the first) 5 documents in the result set after sorting
   console.log(result);
+  /*
+  { name: 'Hortense', age: 8 },
+  { name: 'Niven', age: 9 },
+  { name: 'Willi', age: 10 },
+  { name: 'Porter', age: 11 },
+  { name: 'Vivia', age: 12 },
+  { name: 'Babbette', age: 13 },
+  { name: 'Florian', age: 14 },
+  { name: 'Kyla', age: 15 },
+  { name: 'Ginelle', age: 16 },
+  { name: 'Allianora', age: 17 },
+  { name: 'Esme', age: 18 },
+  { name: 'Delphine', age: 19 },
+  { name: 'Chick', age: 20 }]
+  */
 };
 
 findUser9();
