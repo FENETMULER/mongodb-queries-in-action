@@ -1,8 +1,6 @@
 const users = require("./user.mongo");
 const mongoConnect = require("./services");
 
-//
-
 mongoConnect();
 
 //****OPERATIONS****
@@ -99,7 +97,7 @@ const findUser5 = async () => {
 const countUsers = async () => {
   const result = await users.countDocuments({ age: { $lt: 21 } }); // We can use the same query filters that we would use with the 'find' method.
   console.log(result);
-  //We get an integer value like: 12
+  //We get an integer value like: 13
 };
 
 // using $expr (Expressive Query Operator) - allows us to use aggregation expressions within MQL (MongoDB Query Language)
@@ -114,6 +112,7 @@ const findUser6 = async () => {
     })
     .count();
   console.log(result);
+  // 13
 };
 
 // Sorting Results
