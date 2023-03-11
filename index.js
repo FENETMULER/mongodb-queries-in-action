@@ -215,4 +215,26 @@ const findUser10 = async () => {
   */
 };
 
-findUser10();
+//**UPDATE**
+
+//using updateOne
+const updateUser = async () => {
+  const result = await users.updateOne(
+    //update the first document that matches the filter (first argument) and updates according to the update document (second argument)
+    { name: "Hortense" },
+    { $set: { age: 9 } }
+  );
+
+  console.log(result);
+  /*
+  {
+    acknowledged: true,
+    modifiedCount: 1,  -> number of documents that were modified
+    upsertedId: null,
+    upsertedCount: 0,
+    matchedCount: 1   -> number of documents that matched the filter
+  }
+  */
+};
+
+updateUser();
