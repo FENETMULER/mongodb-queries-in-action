@@ -205,6 +205,14 @@ const findUser10 = async () => {
     .skip(5)
     .limit(5); // limits the result set to only 5 results
   console.log(result);
+
+  /*
+  [{ name: 'Hortense', age: 8 },
+  { name: 'Niven', age: 9 },
+  { name: 'Willi', age: 10 },
+  { name: 'Porter', age: 11 },
+  { name: 'Vivia', age: 12 }]
+  */
 };
 
 findUser10();
