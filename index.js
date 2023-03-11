@@ -196,4 +196,15 @@ const findUser9 = async () => {
   */
 };
 
-findUser9();
+// Limiting Results
+
+const findUser10 = async () => {
+  const result = await users
+    .find({}, { name: 1, age: 1, _id: 0 })
+    .sort({ age: 1 })
+    .skip(5)
+    .limit(5); // limits the result set to only 5 results
+  console.log(result);
+};
+
+findUser10();
