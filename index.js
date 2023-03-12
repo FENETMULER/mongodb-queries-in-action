@@ -220,7 +220,7 @@ const findUser10 = async () => {
 //using updateOne
 const updateUser = async () => {
   const result = await users.updateOne(
-    //update the first document that matches the filter (first argument) and updates according to the update document (second argument)
+    // update the first document that matches the filter (first argument) and updates according to the update document (second argument)
     { name: "Hortense" },
     { $set: { age: 9 } }
   );
@@ -237,4 +237,23 @@ const updateUser = async () => {
   */
 };
 
-updateUser();
+// updating multiple documents
+const updateUsers = async () => {
+  const result = await users.updateMany(
+    { age: { $lt: 18 } },
+    { $set: { minor: true } },
+    { strict: false } // disabling strict mode since the 'minor' field is not defined in the mongoose schema
+  );
+  console.log(result);
+  /*
+  {
+    acknowledged: true,
+    modifiedCount: 0,
+    upsertedId: null,
+    upsertedCount: 0,
+    matchedCount: 15
+  }
+  */
+};
+
+updateUsers();
