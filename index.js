@@ -237,6 +237,23 @@ const updateUser = async () => {
   */
 };
 
+//using findOneAndUpdate
+const updateUser2 = async () => {
+  const result = await users.findOneAndUpdate(
+    // returns the original document before any modification was made
+    { name: "Hortense" },
+    { $set: { age: 10 } }
+  );
+
+  console.log(result);
+  /*
+  {
+    name: 'Hortense',
+    age: 8,
+  }
+  */
+};
+
 // updating multiple documents
 const updateUsers = async () => {
   const result = await users.updateMany(
@@ -248,7 +265,7 @@ const updateUsers = async () => {
   /*
   {
     acknowledged: true,
-    modifiedCount: 0,
+    modifiedCount: 15,
     upsertedId: null,
     upsertedCount: 0,
     matchedCount: 15
@@ -256,4 +273,4 @@ const updateUsers = async () => {
   */
 };
 
-updateUsers();
+updateUser2();
