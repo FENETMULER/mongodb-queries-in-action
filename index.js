@@ -275,12 +275,16 @@ const updateUsers = async () => {
 };
 
 // Replacing Documents
+
+// using replaceOne
 const replaceUser = async () => {
   const result = await users.replaceOne(
     {
+      // filter document
       _id: new ObjectId("640e2463b6ccf14994e5a4b3"),
     },
     {
+      // replacement document
       name: "Colt",
       age: 12,
       minor: true,
@@ -299,4 +303,23 @@ const replaceUser = async () => {
   */
 };
 
-replaceUser();
+// using findOneAndReplace
+
+const replaceUser2 = async () => {
+  const result = await users.findOneAndReplace(
+    // returns document before it was replaced (by default)
+    { name: "Colt" },
+    { name: "Chris", age: 19 }
+  );
+  console.log(result);
+
+  /*
+  {
+  _id: new ObjectId("640e2463b6ccf14994e5a4b3"),
+  age: 19,
+  name: 'Chris'
+  }
+  */
+};
+
+replaceUser2();
