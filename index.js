@@ -1,5 +1,6 @@
 const users = require("./user.mongo");
 const mongoConnect = require("./services");
+const ObjectId = require("mongoose").mongo.ObjectId;
 
 mongoConnect();
 
@@ -273,4 +274,29 @@ const updateUsers = async () => {
   */
 };
 
-updateUser2();
+// Replacing Documents
+const replaceUser = async () => {
+  const result = await users.replaceOne(
+    {
+      _id: new ObjectId("640e2463b6ccf14994e5a4b3"),
+    },
+    {
+      name: "Colt",
+      age: 12,
+      minor: true,
+    }
+  );
+  console.log(result);
+
+  /*
+  {
+    acknowledged: true,
+    modifiedCount: 1,
+    upsertedId: null,
+    upsertedCount: 0,
+    matchedCount: 1
+  }
+  */
+};
+
+replaceUser();
