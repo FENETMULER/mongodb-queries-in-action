@@ -322,4 +322,22 @@ const replaceUser2 = async () => {
   */
 };
 
-replaceUser2();
+// findOneAndReplace with returnDocument set to 'after'
+const replaceUser3 = async () => {
+  const result = await users.findOneAndReplace(
+    { name: "Chris" },
+    { name: "Abel", age: 24, minor: false }, // minor field will be ignored since it's not included in the schema
+    { returnDocument: "after" } // returns the document after the replace operation, we can also use the new option, {new: true}, works the same
+  );
+  console.log(result);
+
+  /*
+  {
+  _id: new ObjectId("640e2463b6ccf14994e5a4b3"),
+  age: 24,
+  name: 'Abel'
+}
+  */
+};
+
+replaceUser3();
