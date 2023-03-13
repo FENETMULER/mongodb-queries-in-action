@@ -342,7 +342,7 @@ const replaceUser3 = async () => {
 
 // Deleting Documents
 
-// using deleteOn
+// using deleteOne
 
 const deleteUser = async () => {
   const result = await users.deleteOne(
@@ -352,7 +352,7 @@ const deleteUser = async () => {
  /*
   {
    acknowledged: true,  -> whether or not the operation was acknowledged by the server
-   deletedCount: 1  -> number of documents deleted by the operatin
+   deletedCount: 1  -> number of documents deleted by the operation
   }
  */
 }
