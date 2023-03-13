@@ -340,4 +340,21 @@ const replaceUser3 = async () => {
   */
 };
 
+// Deleting Documents
+
+// using deleteOn
+
+const deleteUser = async () => {
+  const result = await users.deleteOne(
+    { name: "Abel"} // (filter document) delete one document in the users collection where the name field has a value of "Abel"
+  );
+
+ /*
+  {
+   acknowledged: true,  -> whether or not the operation was acknowledged by the server
+   deletedCount: 1  -> number of documents deleted by the operatin
+  }
+ */
+}
+
 replaceUser3();
