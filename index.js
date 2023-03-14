@@ -359,8 +359,14 @@ const deleteUser = async () => {
 
 const deleteUsers = async () => {
   const result = await users.deleteMany(
-    { age: {$lte: 20} }
+    { age: {$lte: 20} }  // delete all users with ages less than or equal to 20
  );
+ /*
+  {
+   acknowledged: true,
+   deletedCount: 18
+  }
+ */
 }
 
 
