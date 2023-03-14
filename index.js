@@ -357,4 +357,10 @@ const deleteUser = async () => {
  */
 }
 
+const deleteUsers = async () => {
+  const result = await users.deleteMany(
+    { age: {$lte: 20} }
+ );
+}
+
 
