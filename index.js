@@ -18,7 +18,6 @@ const insertUser = async () => {
       age: 26,
     },
   ]);
-  console.log(result);
 
   /*
   [
@@ -45,7 +44,6 @@ const insertUsers = async () => {
       age: 55,
     },
   ]);
-  console.log(result);
 
   /*
 [
@@ -73,7 +71,6 @@ insertUsers();
 const findUser = async () => {
   const result = await users.find({ name: "Hortense" });
 
-  console.log(result);
   /* 
   [{
     _id: new ObjectId("61f0518e4385bfe13cdf3c54"),
@@ -92,8 +89,6 @@ const findUser2 = async () => {
     { name: 1, age: 1, _id: 0 } //include the name and age fields while excluding the _id field.
   );
 
-  console.log(result);
-
   //[{ name: 'Hortense', age: 8 }]
 };
 
@@ -103,7 +98,6 @@ const findUser3 = async () => {
     { name: "Hortense" },
     { email: 0, gender: 0, _id: 0 } //exclude the email, gender, and _id fields.
   );
-  console.log(result);
 
   //[{ name: 'Hortense', age: 8 }]
 };
@@ -114,8 +108,6 @@ const findUser4 = async () => {
   const result = await users.find({
     age: { $lt: 21 }, //we can also use $gt (greater than), $gte (greater than or equal to), $lte (less than or equal to), $ne (not equal to)
   });
-
-  console.log(result);
 
   /*
   [
@@ -142,7 +134,7 @@ const findUser4 = async () => {
 
 const findUser5 = async () => {
   const result = await users.findOne({ name: "Haven", gender: "Male" }); //find one document where name is "Haven" and gender is "Male"
-  console.log(result);
+
   /*
   {
     _id: new ObjectId("61f0518e4385bfe13cdf3c50"),
@@ -158,7 +150,7 @@ const findUser5 = async () => {
 
 const countUsers = async () => {
   const result = await users.countDocuments({ age: { $lt: 21 } }); // We can use the same query filters that we would use with the 'find' method.
-  console.log(result);
+
   //We get an integer value like: 13
 };
 
@@ -173,7 +165,7 @@ const findUser6 = async () => {
       ],
     })
     .count();
-  console.log(result);
+
   // 13
 };
 
@@ -182,7 +174,7 @@ const findUser7 = async () => {
   const result = await users
     .find({}, { name: 1, age: 1, _id: 0 })
     .sort({ age: -1 }); //sort by age in Descending order
-  console.log(result);
+
   /*
   [
   { name: 'Chick', age: 20 },
@@ -211,7 +203,7 @@ const findUser8 = async () => {
   const result = await users
     .find({}, { name: 1, age: 1, _id: 0 })
     .sort({ age: 1 }); //sort by age in Ascending order
-  console.log(result);
+
   /*
   [{ name: 'Haven', age: 4 },
   { name: 'Lynnea', age: 5 },
@@ -240,7 +232,7 @@ const findUser9 = async () => {
     .find({}, { name: 1, age: 1, _id: 0 })
     .sort({ age: 1 })
     .skip(5); // skip (don't include the first) 5 documents in the result set after sorting
-  console.log(result);
+
   /*
   { name: 'Hortense', age: 8 },
   { name: 'Niven', age: 9 },
@@ -266,7 +258,6 @@ const findUser10 = async () => {
     .sort({ age: 1 })
     .skip(5)
     .limit(5); // limits the result set to only 5 results
-  console.log(result);
 
   /*
   [{ name: 'Hortense', age: 8 },
@@ -287,7 +278,6 @@ const updateUser = async () => {
     { $set: { age: 9 } }
   );
 
-  console.log(result);
   /*
   {
     acknowledged: true,
@@ -307,7 +297,6 @@ const updateUser2 = async () => {
     { $set: { age: 10 } }
   );
 
-  console.log(result);
   /*
   {
     name: 'Hortense',
@@ -323,7 +312,7 @@ const updateUsers = async () => {
     { $set: { minor: true } },
     { strict: false } // disabling strict mode since the 'minor' field is not defined in the mongoose schema
   );
-  console.log(result);
+
   /*
   {
     acknowledged: true,
@@ -351,7 +340,6 @@ const replaceUser = async () => {
       minor: true,
     }
   );
-  console.log(result);
 
   /*
   {
@@ -372,7 +360,6 @@ const replaceUser2 = async () => {
     { name: "Colt" },
     { name: "Chris", age: 19 }
   );
-  console.log(result);
 
   /*
   {
@@ -390,7 +377,6 @@ const replaceUser3 = async () => {
     { name: "Abel", age: 24, minor: false }, // minor field will be ignored since it's not included in the schema
     { returnDocument: "after" } // returns the document after the replace operation, we can also use the new option, {new: true}, works the same
   );
-  console.log(result);
 
   /*
   {
