@@ -387,4 +387,51 @@ const replaceUser3 = async () => {
   */
 };
 
-replaceUser3();
+// Deleting Documents
+
+// using deleteOne
+
+const deleteUser = async () => {
+  const result = await users.deleteOne(
+    { name: "Abel" } // (filter document) delete one document in the users collection where the name field has a value of "Abel"
+  );
+
+  /*
+  {
+   acknowledged: true,  -> whether or not the operation was acknowledged by the server
+   deletedCount: 1  -> number of documents deleted by the operation
+  }
+ */
+};
+
+// using deleteMany
+
+const deleteUsers = async () => {
+  const result = await users.deleteMany(
+    { age: { $lte: 20 } } // delete all users with ages less than or equal to 20
+  );
+  /*
+  {
+   acknowledged: true,
+   deletedCount: 18
+  }
+ */
+};
+
+// using findOneAndDelete
+
+const deleteUser2 = async () => {
+  const result = await users.findOneAndDelete(
+    // finds one document that matches the given filter, deletes it from the collection, and returns it
+    { name: "Hortense" }
+  );
+  /*
+  {
+    _id: new ObjectId("61f0518e4385bfe13cdf3c54"),
+    name: 'Hortense',
+    email: 'hbenford7@so-net.ne.jp',
+    gender: 'Female',
+    age: 8
+  }
+ */
+};
