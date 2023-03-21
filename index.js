@@ -5,6 +5,34 @@ const ObjectId = require("mongoose").mongo.ObjectId;
 mongoConnect();
 
 //****OPERATIONS****
+//NOTE: Commented next to every database operation is a sample output.
+
+//**INSERT**
+
+// Inserting a Single Document
+
+const insertUser = async () => {
+  const result = await users.insertMany([
+    {
+      name: "Kyle",
+      age: 26,
+    },
+  ]);
+  console.log(result);
+
+  /*
+  [
+   {
+     _id: new ObjectId("6419d9a3d199f0fa364430e6"),
+    name: 'Kyle',
+    age: 26,
+    __v: 0
+    }
+  ]
+  */
+};
+
+insertUser();
 
 //**FIND**
 
@@ -339,5 +367,3 @@ const replaceUser3 = async () => {
 }
   */
 };
-
-replaceUser3();
