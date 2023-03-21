@@ -32,7 +32,40 @@ const insertUser = async () => {
   */
 };
 
-insertUser();
+const insertUsers = async () => {
+  const result = await users.insertMany([
+    // Although not a good practice, it's possible to insert documents with the same field-value pairs
+    // since MongoDB will create a unique _id value of type ObjectId for each document.
+    {
+      name: "Jane",
+      age: 55,
+    },
+    {
+      name: "Jane",
+      age: 55,
+    },
+  ]);
+  console.log(result);
+
+  /*
+[
+  {
+    name: 'Jane',
+    age: 55,
+    _id: new ObjectId("6419dabc80185085d6ec8905"),
+    __v: 0
+  },
+  {
+    name: 'Jane',
+    age: 55,
+    _id: new ObjectId("6419dabc80185085d6ec8906"),
+    __v: 0
+  }
+]
+  */
+};
+
+insertUsers();
 
 //**FIND**
 
