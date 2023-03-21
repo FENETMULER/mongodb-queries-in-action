@@ -386,3 +386,5 @@ const replaceUser3 = async () => {
 }
   */
 };
+
+replaceUser3();
